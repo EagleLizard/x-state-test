@@ -1,0 +1,23 @@
+
+.theme-palette {
+  .button-palette-container {
+    display: flex;
+    .button-palette {
+      padding: 5px;
+      padding-top: 20px;
+  
+      .button-variant-container {
+        .button-variant-header {
+          padding: 10px 5px;
+        }
+        .button-container {
+          padding: 3px 5px;
+        }
+      }
+    }  
+  }
+
+  .checkbox-palette-container {
+    
+  }
+}

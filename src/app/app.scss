@@ -1,0 +1,24 @@
+
+.app-main {
+  .app-toolbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .app-bar-text {
+      margin-right: 20px;
+    }
+    .page-nav {
+      flex: 1 1;
+      // justify-content: flex-end;
+      display: flex;
+      .page-nav-button {
+        a {
+          text-decoration: none;
+        }
+        button {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}

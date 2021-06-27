@@ -1,0 +1,122 @@
+// $theme-color-base: rgb(152, 253, 0);
+$theme-color-base: rgb(185, 255, 87);
+// $theme-color-base: rgb(208, 219, 151);
+// $theme-color-base: rgb(228, 255, 26);
+
+$theme-color-default: $theme-color-base;
+// $theme-color-primary: rgb(169, 222, 249);
+// $theme-color-primary: rgb(27, 153, 139);
+$theme-color-default-dark: scale-color(
+  $color: $theme-color-default,
+  $lightness: -40%
+);
+$theme-color-primary: rgb(15, 163, 177);
+$theme-color-primary-light: scale-color(
+  $color: $theme-color-primary,
+  $lightness: 20%
+);
+$theme-color-primary-dark: scale-color(
+  $color: $theme-color-primary,
+  $lightness: -20%
+);
+$theme-color-secondary: rgb(255, 99, 146);
+
+@mixin muiButtonText($variant-color) {
+  color: $variant-color;
+  &:hover {
+    background-color: scale-color($variant-color,
+      $alpha: -90%
+    );
+  }
+}
+
+@mixin muiButtonContained($variant-color) {
+  background-color: $variant-color;
+  &:hover {
+    background-color: scale-color($variant-color,
+      $lightness: -12%
+    );
+  }
+}
+
+@mixin muiButtonOutlined($variant-color) {
+  color: $variant-color;
+  border: 1px solid scale-color(
+    $color: $variant-color,
+    $alpha: 50%
+  );
+  &:hover {
+    background-color: scale-color($variant-color,
+      $alpha: -90%
+    );
+  }
+  &.Mui-disabled {
+    opacity: 0.5;
+  }
+}
+
+header.MuiAppBar-root {
+  &.MuiAppBar-colorPrimary {
+    background-color: $theme-color-primary-dark;
+    // background-color: $theme-color-default-dark;
+    .MuiToolbar-root {
+      
+    }
+  }
+}
+
+button {
+
+  &.MuiButton-root {
+
+    &.MuiButton-text:not(.MuiButton-contained) {
+      &:not(.MuiButton-textPrimary):not(.MuiButton-textSecondary) {
+        @include muiButtonText($theme-color-default);
+        // color: rgba(0, 0, 0, 0.87); // override just for default case
+        color: scale-color(
+          $color: $theme-color-default,
+          $lightness: -40%
+        );
+      }
+      &.MuiButton-textPrimary {
+        @include muiButtonText($theme-color-primary);
+      }
+      &.MuiButton-textSecondary {
+        @include muiButtonText($theme-color-secondary);
+      }
+    }
+
+    &.MuiButton-contained {
+      &:not(.MuiButton-containedPrimary):not(.MuiButton-containedSecondary) {
+        @include muiButtonContained($theme-color-default);
+      }
+      &.MuiButton-containedPrimary {
+        @include muiButtonContained($theme-color-primary);
+      }
+      &.MuiButton-containedSecondary {
+        @include muiButtonContained($theme-color-secondary);
+      }
+    }
+
+    &.MuiButton-outlined {
+      &:not(.MuiButton-outlinedPrimary):not(.MuiButton-outlinedSecondary) {
+        @include muiButtonOutlined($theme-color-default);
+        color: scale-color(
+          $color: $theme-color-default,
+          $lightness: -40%
+        );
+        border: 1px solid scale-color(
+          $color: $theme-color-default,
+          $alpha: 50%,
+          $lightness: -40%
+        );
+      }
+      &.MuiButton-outlinedPrimary {
+        @include muiButtonOutlined($theme-color-primary);
+      }
+      &.MuiButton-outlinedSecondary {
+        @include muiButtonOutlined($theme-color-secondary);
+      }
+    }
+  }
+}

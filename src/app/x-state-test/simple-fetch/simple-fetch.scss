@@ -1,0 +1,32 @@
+
+.simple-fetch {
+  .simple-fetch-content {
+    display: flex;
+    .input-container {
+      .fetch-buttons {
+        button {
+          &:not(:first-child) {
+            margin-left: 10px;
+          }
+        }
+      }
+      .fail-select-container {
+        display: flex;
+        align-items: center;
+      }
+      .input-section {
+        &:not(:last-child) {
+          padding-bottom: 10px;
+        }
+      }
+    }
+
+    .result-container {
+      padding-left: 50px;
+      .result-header {
+        font-size: 18px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
